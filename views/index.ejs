@@ -1,54 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Real-Time Sensor Data</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 0;
-      background-color: #f4f4f9;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border: 1px solid #ddd;
-    }
-    th {
-      background-color: #4CAF50;
-      color: white;
-    }
-    h1 {
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <h1>Real-Time Sensor Data</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Parameter</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody id="sensorDataTable">
-      <% for (const key in sensorData) { %>
-        <tr id="<%= key %>Row">
-          <td><%= key %></td>
-          <td id="<%= key %>Value"><%= sensorData[key] %></td>
-        </tr>
-      <% } %>
-    </tbody>
-  </table>
-
-  <script src="/script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Car Movement Visualization</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img id="car" src="/img/car.png" alt="Car" />
+      <div id="indicators">
+        <img id="arrow-up" src="/img/arrow.webp" alt="Forward" />
+        <img id="arrow-down" src="/img/arrow.webp" alt="Backward" />
+        <img id="arrow-left" src="/img/arrow.webp" alt="Left" />
+        <img id="arrow-right" src="/img/arrow.webp" alt="Right" />
+      </div>
+      <div id="warning" class="hidden">
+        <img id="warning-sign" src="/img/warning.jpeg" alt="warning" />
+        <!-- <div id="warning-text">Obstacle Ahead!</div> -->
+      </div>
+    </div>
+    <audio id="warning-sound" preload="auto" loop>
+      <source src="/sounds/warning.mp3" type="audio/mp3" />
+    </audio>
+    <script src="/script.js"></script>
+  </body>
 </html>

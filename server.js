@@ -19,7 +19,7 @@ let sensorData = {
   backward: 0,
   left: 0,
   right: 0,
-  distance: 0,
+  distance: 200,
 };
 
 const broadcastData = () => {
@@ -64,7 +64,7 @@ app.get("/data", (req, res) => {
   });
 
   if (errors.length === 0) {
-    broadcastData(); 
+    broadcastData();
     res.status(200).send({ message: "Data updated successfully", sensorData });
   } else {
     res.status(400).send({ message: "Data update failed", errors });
